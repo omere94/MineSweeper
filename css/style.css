@@ -1,14 +1,12 @@
 body {
-    background: url("../img/background\ img.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: rgba(70, 127, 180, 0.555);
     text-align: center;
     font-family: "Fantasy", "Courier New", monospace;
     color: white;
 }
 
 h2 {
-    color: indigo;
+    color: rgb(23, 4, 37);
 }
 
 .game {
@@ -55,7 +53,7 @@ td {
 }
 
 .timer {
-    background-color: rgba(214, 91, 91, 0.767);
+    background-color:#09151fbd;
     height: 60px;
     width: 150px;
     position:fixed;
@@ -64,4 +62,17 @@ td {
     border-radius: 8px;
     color: rgb(255, 255, 255);
     display: inline-block; 
+    text-align: center;
+}
+
+button {
+    height: 50px;
+    width: 100px;
+    border: none;
+    border-radius: 5px;
+    background-color: #09151fbd;
+    color: white;
+    cursor: pointer;
+    margin-left: 2px;
+    margin-top: 200px;
 }

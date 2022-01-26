@@ -9,14 +9,13 @@
     <title>Mine Sweeper</title>
 </head>
 
-<body onload="initGame()">
+<body onload="initGame()" oncontextmenu="return false;"> 
     <h1>Minesweeper</h1>
     <h2>Good Luck!</h2>
     <div class="game">
         <div class="board"></div>
         <div class="timer">Time : <br> <span></span></div>
-        <div class="emoji" onclick="initGame()"><img src="img/emoji.jpg"></div>
-        <div>Choose your level : <br>
+        <div> <br>
             <button onclick="gameLevel(1)">Easy</button>
             <button onclick="gameLevel(2)">Medium</button>
             <button onclick="gameLevel(3)">Hard</button>

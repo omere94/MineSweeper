@@ -3,6 +3,9 @@
 
 const MINE = '💣';
 const MARK = '🚩';
+const EMOJI = '<img src="../img/emoji.png" />';
+const EMOJI_LOSE = '<img src="../img/emoji lose.png" />'
+const EMOJI_WIN = '<img src="../img/emoji win.png" />'
 
 var gBoard = [];
 var gTimerInterval = null;
@@ -118,7 +121,6 @@ function cellClicked(elCell, i, j) {
     elCell.classList.remove('hidden')
     elCell.innerHTML = content;
     checkGameOver();
-    revealAll();
 }
 
 function cellMarked(elCell, i, j) {
@@ -141,13 +143,16 @@ function cellMarked(elCell, i, j) {
 
 function checkGameOver() {
     var cellsCount = gLevel.SIZE ** 2;
-    var notMines = cellsCount - gLevel.MINES;
-    if (gGame.shownCount === notMines && gGame.markCount === gLevel.MINES) {
+    var noMines = cellsCount - gLevel.MINES;
+    if (gGame.shownCount === noMines && gGame.markedCount === gLevel.MINES) {
         gGame.isOn = false;
+        gameOver = true;
         clearInterval(gTimerInterval);
+        elEmojiDiv.innerHTML = EMOJI_WIN;
+        alert('Victory');
         return true;
-        
     }
+    return false;
 }
 
 function gameLevel(level) {
@@ -176,11 +181,5 @@ function gameLevel(level) {
     }
 }
 
-function revealAll (){
-    for (var i = 0; i < gLevel.SIZE; i++) {
-        for (var j = 0; j < gLevel.SIZE; j++){
-            gBoard[i][j].classList.remove('hidden')
-        }
-}
-}
+
 //function expandShown(board, elCell, i, j)
