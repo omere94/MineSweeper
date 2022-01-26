@@ -3,9 +3,9 @@
 
 const MINE = '💣';
 const MARK = '🚩';
-const EMOJI = '<img src="../img/emoji.png" />';
-const EMOJI_LOSE = '<img src="../img/emoji lose.png" />'
-const EMOJI_WIN = '<img src="../img/emoji win.png" />'
+const EMOJI = '😀';
+const EMOJI_LOSE = '😡';
+const EMOJI_WIN = '😆';
 
 var gBoard = [];
 var gTimerInterval = null;
@@ -13,7 +13,8 @@ var gTimerInterval = null;
 var gLevel = {
     SIZE: 4,
     MINES: 2
-};
+}
+
 var gGame = {
     isOn: false,
     shownCount: 0,
@@ -64,20 +65,20 @@ function setMinesNegsCount(i, j) {
     var negsCount = 0;
     for (var i = 0; i < gLevel.SIZE; i++) {
         for (var j = 0; j < gLevel.SIZE; j++) {
-            if(gBoard[i][j].isMine === false) {
-            if (i + 1 < gLevel.SIZE) {
-                if (gBoard[i + 1][j].isMine === true) negsCount++;
+            if (gBoard[i][j].isMine === false) {
+                if (i + 1 < gLevel.SIZE) {
+                    if (gBoard[i + 1][j].isMine === true) negsCount++;
+                }
+                if (j + 1 < gLevel.SIZE) {
+                    if (gBoard[i][j + 1].isMine === true) negsCount++;
+                }
+                if (i - 1 >= 0) {
+                    if (gBoard[i - 1][j].isMine === true) negsCount++;
+                }
+                if (j - 1 >= 0) {
+                    if (gBoard[i][j - 1].isMine === true) negsCount++;
+                }
             }
-            if (j + 1 < gLevel.SIZE) {
-                if (gBoard[i][j + 1].isMine === true) negsCount++;
-            }
-            if (i - 1 >= 0) {
-                if (gBoard[i - 1][j].isMine === true) negsCount++;
-            }
-            if (j - 1 >= 0) {
-                if (gBoard[i][j - 1].isMine === true) negsCount++;
-            }
-        }
             gBoard[i][j].minesAroundCount = negsCount;
             negsCount = 0;
         }
@@ -88,7 +89,7 @@ function findMines(board) {
     var lastLocation = {
         i: null,
         j: null
-    };
+    }
     for (var i = 0; i < gLevel.MINES; i++) {
         var newI = getRandomIntInclusive(0, (gLevel.SIZE - 1));
         var newJ = getRandomIntInclusive(0, (gLevel.SIZE - 1));
@@ -144,18 +145,16 @@ function cellMarked(elCell, i, j) {
 function checkGameOver() {
     var cellsCount = gLevel.SIZE ** 2;
     var noMines = cellsCount - gLevel.MINES;
-    if (gGame.shownCount === noMines && gGame.markedCount === gLevel.MINES) {
+    if (gGame.shownCount === noMines && gGame.markCount === gLevel.MINES) {
         gGame.isOn = false;
         gameOver = true;
         clearInterval(gTimerInterval);
-        elEmojiDiv.innerHTML = EMOJI_WIN;
-        alert('Victory');
         return true;
     }
     return false;
 }
 
-function gameLevel(level) {
+/*function gameLevel(level) {
     switch (level) {
         case 1:
             gLevel = {
@@ -180,6 +179,6 @@ function gameLevel(level) {
             break;
     }
 }
-
+*/
 
 //function expandShown(board, elCell, i, j)

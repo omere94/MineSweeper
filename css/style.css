@@ -1,5 +1,5 @@
 body {
-    background-color: rgba(70, 127, 180, 0.555);
+    background-color: rgba(20, 50, 78, 0.63);
     text-align: center;
     font-family: "Fantasy", "Courier New", monospace;
     color: white;
@@ -45,7 +45,7 @@ td {
 }
 
 .hidden:hover {
-    background-color: rgba(13, 13, 168, 0.897);
+    background-color: rgba(47, 47, 173, 0.897);
 }
 
 .marked {
