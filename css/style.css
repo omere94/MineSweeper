@@ -21,7 +21,7 @@ h2 {
 .board {
     height: 400px;
     width: 400px;
-    background-color: rgba(75, 61, 61, 0.493);
+    background-color: rgba(148, 121, 121, 0.493);
     margin: auto;
     position: relative;
     top: 100px;
@@ -41,15 +41,11 @@ td {
 }
 
 .hidden {
-    background-color: rgba(59, 59, 138, 0.726);
+    background-color: rgba(30, 30, 78, 0.726);
 }
 
 .hidden:hover {
-    background-color: rgba(47, 47, 173, 0.897);
-}
-
-.marked {
-    background-color: rgb(52, 100, 5);
+    background-color: rgba(148, 121, 121, 0.493);
 }
 
 .timer {
