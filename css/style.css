@@ -1,0 +1,67 @@
+body {
+    background: url("../img/background\ img.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    font-family: "Fantasy", "Courier New", monospace;
+    color: white;
+}
+
+h2 {
+    color: indigo;
+}
+
+.game {
+    height: 600px;
+    width: 600px;
+    background-color: #09151fbd;
+    margin: auto;
+    border: 2px solid white;
+    border-radius: 25px;
+}
+
+.board {
+    height: 400px;
+    width: 400px;
+    background-color: rgba(75, 61, 61, 0.493);
+    margin: auto;
+    position: relative;
+    top: 100px;
+}
+
+table {
+    border: 2px solid white;
+    height: 400px;
+    width: 400px;
+
+}
+
+td {
+    border: 1px solid white;
+    height: 50px;
+    width: 50px;
+}
+
+.hidden {
+    background-color: rgba(59, 59, 138, 0.726);
+}
+
+.hidden:hover {
+    background-color: rgba(13, 13, 168, 0.897);
+}
+
+.marked {
+    background-color: rgb(52, 100, 5);
+}
+
+.timer {
+    background-color: rgba(214, 91, 91, 0.767);
+    height: 60px;
+    width: 150px;
+    position:fixed;
+    left: 30px;
+    top: 30px;
+    border-radius: 8px;
+    color: rgb(255, 255, 255);
+    display: inline-block; 
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Mine Sweeper</title>
+</head>
+
+<body onload="initGame()">
+    <h1>Minesweeper</h1>
+    <h2>Good Luck!</h2>
+    <div class="game">
+        <div class="board"></div>
+        <div class="timer">Time : <br> <span></span></div>
+        <div class="emoji" onclick="initGame()"><img src="img/emoji.jpg"></div>
+        <div>Choose your level : <br>
+            <button onclick="gameLevel(1)">Easy</button>
+            <button onclick="gameLevel(2)">Medium</button>
+            <button onclick="gameLevel(3)">Hard</button>
+        </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
