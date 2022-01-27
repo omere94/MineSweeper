@@ -20,10 +20,12 @@ function renderBoard(board, selector) {
 
 
 // location such as: {i: 2, j: 7}
-function renderCell(location, value) {
+function renderCell(value, i, j) {
     // Select the elCell and set the value
-    var elCell = document.querySelector(`.cell-${location.i}-${location.j}`);
+    var elCell = document.querySelector(`.cell-${i}-${j}`);
+    if (value === 0) value = '';
     elCell.innerHTML = value;
+    elCell.classList.remove('hidden');
 }
 
 //Random number include the max num
