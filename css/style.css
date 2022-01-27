@@ -1,36 +1,25 @@
 body {
-    background-color: rgba(20, 50, 78, 0.63);
+    background-color: rgba(67, 120, 170, 0.63);
     text-align: center;
     font-family: "Fantasy", "Courier New", monospace;
     color: white;
 }
 
+h1 {
+   color: #09151fbd
+}
+
 h2 {
-    color: rgb(23, 4, 37);
-}
-
-.game {
-    height: 600px;
-    width: 600px;
-    background-color: #09151fbd;
-    margin: auto;
-    border: 2px solid white;
-    border-radius: 25px;
-}
-
-.board {
-    height: 400px;
-    width: 400px;
-    background-color: rgba(148, 121, 121, 0.493);
-    margin: auto;
-    position: relative;
-    top: 100px;
+    color: #09151fbd;
 }
 
 table {
+    box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000,
+     -12px 19px 31px 13px rgba(0,0,0,0);
+    margin:auto;
     border: 2px solid white;
-    height: 400px;
-    width: 400px;
+    height: 700px;
+    width: 700px;
 
 }
 
@@ -49,6 +38,8 @@ td {
 }
 
 .timer {
+    box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000,
+     -12px 19px 31px 13px rgba(0,0,0,0);
     background-color:#09151fbd;
     height: 60px;
     width: 150px;
@@ -62,6 +53,8 @@ td {
 }
 
 button {
+    box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000,
+     -12px 19px 31px 13px rgba(0,0,0,0);
     height: 50px;
     width: 100px;
     border: none;
@@ -70,5 +63,4 @@ button {
     color: white;
     cursor: pointer;
     margin-left: 2px;
-    margin-top: 200px;
 }
