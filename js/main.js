@@ -47,18 +47,6 @@ function buildBoard(size) {
         }
         board.push(row)
     }
-    /*board[1][1] = {
-        minesAroundCount: 0,
-        isShown: false,
-        isMine: true,
-        isMarked: false
-    }
-    board[3][2] = {
-        minesAroundCount: 0,
-        isShown: false,
-        isMine: true,
-        isMarked: false
-    }*/
     return board;
 }
 
@@ -114,6 +102,7 @@ function cellClicked(elCell, i, j) {
         elCell.classList.remove('hidden')
         elCell.innerHTML = MINE;
         gGame.isOn = false;
+        
         clearInterval(gTimerInterval);
         return;
     }
@@ -124,15 +113,18 @@ function cellClicked(elCell, i, j) {
     elCell.classList.remove('hidden')
     elCell.innerHTML = content;
     checkGameOver();
+
     var cell = gBoard[i][j];
     if (cell.isShown || cell.isMarked) return;
     if (cell.isMine && lives === 1) {
         elCell.classList.remove('hidden')
-        elCell.innerHTML = MINE_IMG;
+        elCell.innerHTML = MINE;
         findMines();
+
         gGame.isOn = false;
         gameOver = true;
         clearInterval(gTimerInterval);
+
         elEmojiDiv.innerHTML = EMOJI_LOSE;
         elLivesDiv.innerText = LIVES;
         return;
@@ -172,15 +164,14 @@ function checkGameOver() {
 
 function expandShown(gBoard, elCell, cellI, cellJ) {
     var currCell;
-
     checkGameOver();
+    
     for (var i = cellI - 1; i <= cellI + 1; i++) {
         for (var j = cellJ - 1; j <= cellJ + 1; j++) {
             if (i === cellI && j === cellJ) continue;
             if (i < 0 || i > gBoard.length - 1) continue;
             if (j < 0 || j > gBoard[0].length - 1) continue;
 
-            
             currCell = document.querySelector('#cell-' + i + '-' + j);
             if (currCell.gBoard[i][j]) continue;
             else if (gBoard[i][j].isMine) continue;
@@ -189,16 +180,17 @@ function expandShown(gBoard, elCell, cellI, cellJ) {
             else {
                 if (gBoard[i][j].minesAroundCount > 0) {
                     currCell.innerHTML = gBoard[i][j].negs;
-                    currCell.style.backgroundColor = 'grey';
+                    currCell.style.backgroundColor = 'rgba(13, 68, 119, 0.63)';
                     gBoard[i][j].isOn = true;
                     gGame.shownCount++;
                     checkGameOver();
+
                 } else {
                     gGame.shownCount++;
                     if (!elCell.children[0]) {
-                        elCell.style.backgroundColor = 'grey';
+                        elCell.style.backgroundColor = 'rgba(13, 68, 119, 0.63)';
                     }
-                    currCell.style.backgroundColor = 'grey';
+                    currCell.style.backgroundColor = 'rgba(13, 68, 119, 0.63)';
                     gBoard[i][j].ison = true;
 
                     expandShown(gBoard, currCell, i, j);
@@ -207,7 +199,6 @@ function expandShown(gBoard, elCell, cellI, cellJ) {
         }
     }
 }
-
 
 function gameLevel(level) {
     switch (level) {
@@ -235,4 +226,3 @@ function gameLevel(level) {
     }
 }
 
-//function expandShown(board, elCell, i, j)
