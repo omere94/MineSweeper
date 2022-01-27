@@ -6,8 +6,6 @@ const MARK = '🚩';
 const EMOJI = '😀';
 const EMOJI_LOSE = '😡';
 const EMOJI_WIN = '😎';
-//const LIVES = '💓';
-
 
 var gameOver = false;
 var gBoard = [];
@@ -15,7 +13,6 @@ var gTimerInterval = null;
 var gCellClicked = false;
 var gLivesCounter = 3;
 var gBtn;
-//var gLive;
 
 var gLevel = {
     SIZE: 4,
@@ -30,8 +27,23 @@ var gGame = {
 }
 
 function initGame() {
+    resetTimer();
+    gCellClicked = false;
+    gLivesCounter = 3;
+    gGame = {
+        isOn: false,
+        shownCount: 0,
+        markCount: 0,
+        secsPass: 0
+    }
+    gameOver = false;
     gBoard = buildBoard(gLevel.SIZE);
     renderBoard(gBoard, '.board')
+    clearInterval(gTimerInterval);
+    const btn = document.getElementById("emoji")
+    btn.innerHTML = EMOJI;
+    const livesHeader = document.getElementById("lives_header")
+    livesHeader.innerText = gLivesCounter + " 💓 Lives left";
 }
 
 function buildBoard(size) {
@@ -115,9 +127,9 @@ function cellClicked(elCell, i, j) {
     if (cell.isShown === true || cell.isMarked === true) return;
     if (cell.isMine === true) {
         gLivesCounter--;
+        const livesHeader = document.getElementById("lives_header")
+        livesHeader.innerText = gLivesCounter + " 💓 Lives left";
         if (gLivesCounter > 0) {
-            //gLive = document.getElementById("lives")
-           // gLive.innerHTML = LIVES;
             alert('Sorry, you only have ' + gLivesCounter + ' attempts')
         } else {
             elCell.classList.remove('hidden')
@@ -272,9 +284,7 @@ function gameLevel(level) {
 }
 
 function restart() {
-    gBtn = document.getElementById("emoji")
-    gBtn.addEventListener("click", () => {
-        initGame()
-    })
+
+    initGame();
 }
 

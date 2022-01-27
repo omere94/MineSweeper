@@ -43,8 +43,8 @@ td {
     box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000,
      -12px 19px 31px 13px rgba(0,0,0,0);
     background-color:#09151fbd;
-    height: 60px;
-    width: 150px;
+    height: 65px;
+    width: 125px;
     position:fixed;
     left: 30px;
     top: 30px;
@@ -57,8 +57,8 @@ td {
 button {
     box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000,
      -12px 19px 31px 13px rgba(0,0,0,0);
-    height: 50px;
-    width: 100px;
+    height: 65px;
+    width: 125px;
     border: none;
     border-radius: 5px;
     background-color: #09151fbd;

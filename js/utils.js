@@ -37,6 +37,14 @@ var milliSec = 0;
 var sec = 0;
 var minute = 0;
 
+function resetTimer() {
+     milliSec = 0;
+ sec = 0;
+ minute = 0;
+ var elTimerDiv = document.querySelector('.timer span');
+    elTimerDiv.innerText = '00:00:0';
+}
+
 function timer() {
     milliSec++;
     if (milliSec === 10) {
